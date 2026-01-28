@@ -29,7 +29,7 @@ export default function Input({
       {label && (
         <label
           htmlFor={inputId}
-          className={`text-sm font-medium text-primary-header dark:text-green-500 mb-2 block ${labelClassName}`}
+          className={`text-sm font-medium text-orange-600 mb-2 block ${labelClassName}`}
         >
           {label} {required && <span className="text-red-500">*</span>}
         </label>
@@ -38,7 +38,7 @@ export default function Input({
         id={inputId}
         {...props}
         className={
-          `w-full h-11 rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ` +
+          `w-full h-11 rounded-lg border border-gray-300 bg-white px-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent ` +
           className
         }
       />

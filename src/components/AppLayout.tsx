@@ -125,7 +125,7 @@ export default function AppSidebar({ children, title }: AppSidebarProps) {
 
   return (
     <SidebarContext.Provider value={{ isOpen, setIsOpen, toggle }}>
-      <div className="relative min-h-screen overflow-hidden bg-background">
+      <div className="relative min-h-screen overflow-hidden bg-white">
         {/* Mobile Sidebar */}
         <div className="md:hidden">
           {/* Sidebar Panel */}
@@ -133,7 +133,7 @@ export default function AppSidebar({ children, title }: AppSidebarProps) {
             initial={false}
             animate={{ x: isOpen ? 0 : "-100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed top-0 left-0 h-full bg-background text-background z-30"
+            className="fixed top-0 left-0 h-full bg-white text-gray-900 z-30"
             style={{ willChange: "transform" }}
           >
             {/* Sidebar Header */}
@@ -151,11 +151,11 @@ export default function AppSidebar({ children, title }: AppSidebarProps) {
                     to={item.path}
                     onClick={() => setIsOpen(false)}
                     className={`w-[200px] md:w-full flex items-center gap-4 px-5 py-4 transition-all text-left rounded-xl mb-1 ${
-                      isActive ? "bg-white/20" : "hover:bg-white/10"
+                      isActive ? "bg-orange-100 text-orange-700" : "text-gray-700 hover:bg-gray-100"
                     }`}
                   >
-                    <item.icon size={22} className="text-primary-foreground" />
-                    <span className="text-base font-medium text-primary-foreground">
+                    <item.icon size={22} className={isActive ? "text-orange-700" : "text-gray-600"} />
+                    <span className="text-base font-medium">
                       {item.label}
                     </span>
                   </Link>
@@ -165,10 +165,10 @@ export default function AppSidebar({ children, title }: AppSidebarProps) {
               {/* Logout */}
               <button
                 onClick={handleLogout}
-                className="w-full flex items-center gap-4 px-5 py-4 hover:bg-white/10 transition-all text-left rounded-xl mb-1 mt-8"
+                className="w-full flex items-center gap-4 px-5 py-4 hover:bg-red-50 text-red-600 transition-all text-left rounded-xl mb-1 mt-8"
               >
-                <LogOut size={22} className="text-primary-foreground" />
-                <span className="text-base font-medium text-primary-foreground">
+                <LogOut size={22} />
+                <span className="text-base font-medium">
                   Logout
                 </span>
               </button>
@@ -185,7 +185,7 @@ export default function AppSidebar({ children, title }: AppSidebarProps) {
             }
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             // while sidebar is open make the main area fixed to prevent document scrollbar changes
-            className={`relative min-h-screen bg-background shadow-2xl ${
+            className={`relative min-h-screen bg-white shadow-2xl ${
               isOpen ? "fixed inset-0 z-20 overflow-auto" : "overflow-hidden"
             }`}
             style={{ transformOrigin: "left center", willChange: "transform" }}
@@ -193,17 +193,17 @@ export default function AppSidebar({ children, title }: AppSidebarProps) {
             {/* Overlay when sidebar is open */}
             {isOpen && (
               <div
-                className="absolute inset-0 bg-black/20 z-20"
+                className="absolute inset-0 bg-black/30 z-20"
                 onClick={() => setIsOpen(false)}
               />
             )}
 
             {/* Header */}
-            <header className="sticky top-0 bg-background text-primary-foreground px-4 py-3 flex items-center justify-between z-10">
+            <header className="sticky top-0 bg-white border-b border-gray-200 text-gray-900 px-4 py-3 flex items-center justify-between z-10">
               <div className="flex items-center gap-3">
                 <button
                   onClick={toggle}
-                  className="p-2 hover:bg-white/10 rounded-lg transition-colors active:scale-95"
+                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors active:scale-95"
                 >
                   {isOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
@@ -213,7 +213,7 @@ export default function AppSidebar({ children, title }: AppSidebarProps) {
             </header>
 
             {/* Page Content */}
-            <main className="min-h-[calc(100vh-60px)] bg-background">
+            <main className="min-h-[calc(100vh-60px)] bg-white">
               {children}
             </main>
           </motion.div>
@@ -235,11 +235,11 @@ export default function AppSidebar({ children, title }: AppSidebarProps) {
             className={`flex-1 transition-all duration-500 min-h-screen flex flex-col`}
           >
             <main
-              className={`pl-[6rem] mt-[1.75rem] transition-all duration-500 pt-[4rem] p-6 bg-body`}
+              className={`pl-[6rem] mt-[1.75rem] transition-all duration-500 pt-[4rem] p-6 bg-white`}
             >
-                <div className="border-b border-border pb-4 mb-10">
+                <div className="border-b border-gray-200 pb-4 mb-10">
                   <div className="flex items-center justify-between">
-                    <h1 className="text-3xl font-bold tracking-wider text-secondary-text ">
+                    <h1 className="text-3xl font-bold tracking-wider text-gray-900">
                       {title}
                     </h1>
                   </div>

@@ -76,7 +76,7 @@ export default function Sidebar({
         ref={sidebarRef}
         className={`
           fixed top-0 left-0 z-40 h-screen
-          bg-app border-r border-border
+          bg-white border-r border-gray-200
           flex flex-col transition-all duration-300
           ${collapsed ? "w-20" : "w-72"}
           ${isOpen ? "translate-x-0" : "lg:translate-x-0"}
@@ -92,7 +92,7 @@ export default function Sidebar({
             <Logo />
           </div>
 
-          {/* Toggle button – SAME SIZE AS NAV ICONS */}
+          {/* Toggle button */}
           <button
             onClick={toggleCollapse}
             aria-label="Toggle sidebar"
@@ -100,8 +100,8 @@ export default function Sidebar({
               w-12 h-12
               grid place-items-center
               rounded-lg
-              text-muted-foreground
-              hover:bg-primary/10 hover:text-primary
+              text-gray-600
+              hover:bg-gray-100 hover:text-orange-600
               transition
             "
           >
@@ -127,11 +127,10 @@ export default function Sidebar({
                   px-2
                   rounded-lg
                   transition-all
-                  hover:bg-primary-red-100
                   ${
                     active
-                      ? "bg-primary text-primary-foreground"
-                      : "hover:bg-primary-2"
+                      ? "bg-orange-100 text-orange-700"
+                      : "text-gray-700 hover:bg-gray-100"
                   }
                 `}
               >
@@ -140,18 +139,24 @@ export default function Sidebar({
                   <span className="absolute left-0 top-1/2 -translate-y-1/2 h-6 w-1 rounded-r-full bg-primary" />
                 )} */}
 
-                {/* Icon box – FIXED SQUARE */}
+                {/* Icon box */}
                 <div
-                  className="
-                     w-12 h-12
-              grid place-items-center
-              rounded-lg
-              text-muted-foreground
-              hover:bg-primary/10 hover:text-primary
-              transition
-                  "
+                  className={`
+                    w-12 h-12
+                    grid place-items-center
+                    rounded-lg
+                    transition
+                    ${
+                      active
+                        ? "bg-orange-600"
+                        : "text-gray-600"
+                    }
+                  `}
                 >
-                  <Icon size={18} className="text-muted-foreground" />
+                  <Icon 
+                    size={18} 
+                    className={active ? "text-white" : "text-gray-600"}
+                  />
                 </div>
 
                 {/* Label */}
@@ -174,7 +179,7 @@ export default function Sidebar({
         </nav>
 
         {/* Logout */}
-        <div className="px-2 py-3 border-t border-border">
+        <div className="px-2 py-3 border-t border-gray-200">
           <button
             onClick={handleLogout}
             className="
@@ -183,8 +188,8 @@ export default function Sidebar({
               h-12
               px-2
               rounded-lg
-              text-muted-foreground
-              hover:bg-destructive hover:text-destructive
+              text-red-600
+              hover:bg-red-50
               transition
             "
           >

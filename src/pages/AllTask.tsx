@@ -206,12 +206,12 @@ export default function AllTasks() {
   /* ================= UI (UNCHANGED) ================= */
 
   return (
-    <div className="bg-app dark:bg-app-dark min-h-screen font-display text-slate-900 dark:text-white rounded-xl">
+    <div className="bg-white min-h-screen text-gray-900 rounded-xl">
       {/* MOBILE */}
       <div className="relative mx-auto max-w-md min-h-screen flex flex-col md:hidden">
-        <header className="sticky top-0 z-50 bg-app-light/80 dark:bg-app-dark/80 backdrop-blur border-b border-white/5">
+        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200">
           <div className="flex items-center justify-between p-4 pb-2">
-            <button className="h-12 w-12 flex items-center text-primary">
+            <button className="h-12 w-12 flex items-center text-orange-600 hover:bg-gray-100 rounded-lg">
               <ChevronLeft size={22} />
             </button>
             <h2 className="text-lg font-bold text-center flex-1 tracking-tight">
@@ -223,29 +223,23 @@ export default function AllTasks() {
             <div className="relative">
               <Search
                 size={18}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
               />
               <input
                 placeholder="Find tasks..."
-                className="w-full bg-slate-800/50 rounded-xl py-2 pl-10 pr-4 text-sm"
+                className="w-full bg-gray-100 rounded-lg py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
-
-            {/* <div className="flex gap-2 overflow-x-auto no-scrollbar">
-              <FilterChip active label="All Tasks" />
-              <FilterChip label="Pending" />
-              <FilterChip label="Overdue" />
-            </div> */}
           </div>
         </header>
 
         <main className="flex-1 overflow-y-auto p-4 pb-24">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">
+          <h2 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">
             Total Tasks ({tasks.length})
           </h2>
 
-          {loading && <p className="text-sm text-slate-400">Loading...</p>}
-          {error && <p className="text-sm text-rose-500">{error}</p>}
+          {loading && <p className="text-sm text-gray-600">Loading...</p>}
+          {error && <p className="text-sm text-red-600">{error}</p>}
 
           <div className="space-y-3">
             {tasks.map((task) => (
@@ -256,44 +250,48 @@ export default function AllTasks() {
       </div>
 
       {/* DESKTOP */}
-      <div className="hidden md:block bg-slate-50 dark:bg-slate-950 rounded-xl p-6">
-        <div className="bg-white dark:bg-slate-900 rounded-xl border overflow-hidden">
-          <div className="px-6 py-4 border-b flex justify-between">
-            <h2 className="text-lg font-semibold">All Tasks</h2>
-            <span className="text-sm text-slate-500">
+      <div className="hidden md:block bg-gray-50 rounded-xl p-6">
+        <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+          <div className="px-6 py-4 border-b border-gray-200 flex justify-between bg-white">
+            <h2 className="text-lg font-semibold text-gray-900">All Tasks</h2>
+            <span className="text-sm text-gray-600">
               Showing {tasks.length} tasks
             </span>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-slate-50 dark:bg-slate-800">
+              <thead className="bg-gray-50 border-b border-gray-200">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs">Task ID</th>
-                  <th className="px-6 py-3 text-left text-xs">Title</th>
-                  <th className="px-6 py-3 text-left text-xs">Status</th>
-                  <th className="px-6 py-3 text-left text-xs">Priority</th>
-                  <th className="px-6 py-3 text-left text-xs">Assignee</th>
-                  <th className="px-6 py-3 text-left text-xs">Due Date</th>
-                  <th className="px-6 py-3 text-left text-xs">Actions</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Task ID</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Title</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Status</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Priority</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Assignee</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Due Date</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Actions</th>
                 </tr>
               </thead>
 
-              <tbody>
+              <tbody className="divide-y divide-gray-200">
                 {tasks.map((task) => (
                   <tr
                     key={task.id}
                     onClick={() => navigate("/tasks", { state: task.raw })}
-                    className="hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer"
+                    className="hover:bg-gray-50 cursor-pointer transition"
                   >
-                    <td className="px-6 py-4 font-mono">{task.id}</td>
-                    <td className="px-6 py-4">{task.title}</td>
-                    <td className="px-6 py-4">Pending Approval</td>
-                    <td className="px-6 py-4">{task.priority}</td>
-                    <td className="px-6 py-4">{task.assignee}</td>
+                    <td className="px-6 py-4 font-mono text-sm text-gray-900">{task.id}</td>
+                    <td className="px-6 py-4 text-sm font-medium text-gray-900">{task.title}</td>
+                    <td className="px-6 py-4 text-sm">
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                        Pending
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-sm text-gray-700">{task.priority}</td>
+                    <td className="px-6 py-4 text-sm text-gray-700">{task.assignee}</td>
                     <td
-                      className={`px-6 py-4 ${
-                        task.overdue ? "text-red-600 font-medium" : ""
+                      className={`px-6 py-4 text-sm ${
+                        task.overdue ? "text-red-600 font-semibold" : "text-gray-700"
                       }`}
                     >
                       {task.date}
@@ -304,7 +302,7 @@ export default function AllTasks() {
                           e.stopPropagation();
                           navigate("/tasks", { state: task.raw });
                         }}
-                        className="text-primary text-sm font-medium"
+                        className="text-orange-600 hover:text-orange-700 text-sm font-medium"
                       >
                         View
                       </button>
@@ -335,19 +333,19 @@ function TaskRow({
   return (
     <div
       onClick={() => navigate("/tasks", { state: raw })}
-      className="flex items-center p-4 rounded-2xl border bg-surface dark:bg-surface-dark hover:bg-slate-50 transition cursor-pointer"
+      className="flex items-center p-4 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 transition cursor-pointer"
     >
-      <div className="flex-1">
-        <div className="flex justify-between mb-1">
-          <span className="text-xs font-mono text-primary">{id}</span>
-          <span className="text-xs font-bold">{priority}</span>
+      <div className="flex-1 min-w-0">
+        <div className="flex justify-between mb-1 gap-2">
+          <span className="text-xs font-mono text-orange-600 font-medium">{id}</span>
+          <span className="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-0.5 rounded">{priority}</span>
         </div>
-        <p className="font-semibold">{title}</p>
-        <p className={`text-xs ${overdue ? "text-red-500" : "text-slate-500"}`}>
+        <p className="font-semibold text-gray-900 truncate">{title}</p>
+        <p className={`text-xs mt-1 ${overdue ? "text-red-600 font-medium" : "text-gray-600"}`}>
           {assignee} • {date}
         </p>
       </div>
-      <ChevronRight size={18} className="text-slate-400" />
+      <ChevronRight size={18} className="text-gray-400 flex-shrink-0 ml-2" />
     </div>
   );
 }

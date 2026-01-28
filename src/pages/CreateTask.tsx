@@ -320,11 +320,11 @@ export default function CreateAssignTask() {
   };
 
   return (
-    <div className="bg-slate-50 dark:bg-slate-950 rounded-xl">
+    <div className="bg-gray-50 rounded-xl min-h-screen">
       {/* Main Content */}
       <div className="flex justify-center rounded-xl">
-        <div className="p-6 rounded-xl shadow-md space-y-6 w-full max-w-full">
-          <h2 className="text-xl font-semibold text-secondary-text-dark">
+        <div className="p-6 rounded-xl shadow-md space-y-6 w-full max-w-full bg-white">
+          <h2 className="text-xl font-semibold text-gray-900">
             Create and Assign Task
           </h2>
 
@@ -334,7 +334,7 @@ export default function CreateAssignTask() {
               {/* Topic */}
               <div>
                 <label className="block">
-                  <span className="text-sm font-medium text-primary-header dark:text-green-500 mb-2 block">
+                  <span className="text-sm font-medium text-orange-600 mb-2 block">
                     Topic <span className="text-red-500">*</span>
                   </span>
                   <Input
@@ -350,7 +350,7 @@ export default function CreateAssignTask() {
               {/* Priority */}
               <div>
                 <label className="block">
-                  <span className="text-sm font-medium text-primary-header dark:text-green-500 mb-2 block">
+                  <span className="text-sm font-medium text-orange-600 mb-2 block">
                     Priority Level <span className="text-red-500">*</span>
                   </span>
 
@@ -414,7 +414,7 @@ export default function CreateAssignTask() {
               {/* Due Date */}
               <div>
                 <label className="block">
-                  <span className="text-sm font-medium text-primary-header dark:text-green-500 mb-2 block">
+                  <span className="text-sm font-medium text-gray-700 mb-2 block">
                     Due Date
                   </span>
 
@@ -444,7 +444,7 @@ export default function CreateAssignTask() {
             {/* Row 2: Description */}
             <div>
               <label className="block">
-                <span className="text-sm font-medium text-primary-header mb-2 block">
+                <span className="text-sm font-medium text-gray-700 mb-2 block">
                   Description
                 </span>
                 <textarea
@@ -461,10 +461,10 @@ export default function CreateAssignTask() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
               {/* Calendar */}
               <div>
-                <h3 className="text-sm font-medium text-primary-header dark:text-green-500 mb-4">
+                <h3 className="text-sm font-medium text-orange-600 mb-4">
                   Select Due Date
                 </h3>
-                <div className="bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 p-6">
+                <div className="bg-white rounded-lg border border-gray-200 p-6">
                   {/* Month Navigation */}
                   <div className="flex items-center justify-between mb-6">
                     <button
@@ -535,7 +535,7 @@ export default function CreateAssignTask() {
 
               {/* Assign To */}
               <div>
-                <h3 className="text-sm font-medium text-primary-header dark:text-green-500 mb-4">
+                <h3 className="text-sm font-medium text-orange-600 mb-4">
                   Assign To
                 </h3>
 

@@ -1,49 +1,54 @@
-/* Default theme (now set to dark by default) */
+/* Default theme - White and Orange */
 :root {
-  --theme-background: #0F172A; /* deep navy-slate */
-  --theme-primary: #FF5630; /* interactive / bottom nav active (orange) */
-  --theme-primary-2: #E64A2E;
-  --theme-primary-3: #0EA5A3;
-  --theme-surface: #1E293B; /* card surfaces */
-  --theme-border: #334155; /* muted slate for borders */
-  --theme-text-primary: #FFFFFF; /* off-white for headings & large numbers */
-  --theme-text-muted: #94A3B8; /* slate-gray for descriptions */
+  --theme-background: #FFFFFF; /* pure white background */
+  --theme-primary: #FF6B35; /* warm orange primary */
+  --theme-primary-2: #FF8A50;
+  --theme-primary-3: #FF5722;
+  --theme-surface: #F8F9FA; /* light gray surface */
+  --theme-border: #E5E7EB; /* light border */
+  --theme-text-primary: #1F2937; /* dark gray text */
+  --theme-text-muted: #6B7280; /* medium gray for descriptions */
   --theme-text-inverse: #FFFFFF;
-  --theme-accent: #FF5630; /* primary accent (interactive) */
-  --theme-accent-2: #FBBF24; /* warning / pending */
+  --theme-accent: #FF6B35; /* orange accent */
+  --theme-accent-2: #FFA500; /* amber warning */
   --theme-success: #10B981; /* success / growth */
-  --theme-warning: #FBBF24; /* pending */
+  --theme-warning: #FFA500; /* pending */
   --theme-card-bg: var(--theme-surface);
   --theme-card-border: var(--theme-border);
-  --theme-primary-tint: rgba(255,86,48,0.08); /* light tint of interactive (orange) */
-  --theme-primary-2-tint: rgba(11,99,166,0.06);
+  --theme-primary-tint: rgba(255,107,53,0.08); /* light tint of orange */
+  --theme-primary-2-tint: rgba(255,138,80,0.08);
   --theme-primary-3-tint: rgba(16,185,129,0.06);
-  --theme-accent-tint: rgba(255,86,48,0.08);
-  --theme-shadow: 0 8px 24px rgba(2,6,23,0.6);
-  --theme-gradient-primary: linear-gradient(135deg, #ff7a4d 0%, #ff5630 100%);
-  --theme-nav-active: #FF5630;
-  --theme-icon-bg: rgba(255,86,48,0.08);
+  --theme-accent-tint: rgba(255,107,53,0.08);
+  --theme-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --theme-gradient-primary: linear-gradient(135deg, #FF8A50 0%, #FF6B35 100%);
+  --theme-nav-active: #FF6B35;
+  --theme-icon-bg: rgba(255,107,53,0.08);
 }
 
 /* Utility classes */
 .bg-app { background: var(--theme-background) !important; }
+.bg-app-light { background: var(--theme-background) !important; }
+.bg-app-dark { background: var(--theme-background) !important; }
 .bg-surface { background: var(--theme-surface) !important; }
+.bg-surface-dark { background: var(--theme-surface) !important; }
 .bg-primary { background: var(--theme-primary) !important; }
 .bg-primary-2 { background: var(--theme-primary-2) !important; }
 .bg-primary-3 { background: var(--theme-primary-3) !important; }
 .bg-accent { background: var(--theme-accent) !important; }
 .text-primary { color: var(--theme-text-primary) !important; }
-.text-primary-header {color: var(--theme-primary) !important;}
-.ring-primary-header {color: var(--theme-primary) !important;}
+.text-primary-header { color: var(--theme-primary) !important; }
+.ring-primary-header { color: var(--theme-primary) !important; }
 .text-primary-2 { color: var(--theme-primary-2) !important; }
 .text-muted { color: var(--theme-text-muted) !important; }
 .text-inverse { color: var(--theme-text-inverse) !important; }
 .border-theme { border-color: var(--theme-border) !important; }
 .shadow-theme { box-shadow: var(--theme-shadow) !important; }
 
-.bg-primary-light { background-color: #EAF3FF; }
-
+.bg-primary-light { background-color: rgba(255,107,53,0.1); }
 .bg-card-bg { background-color: var(--theme-card-bg) !important; }
+.bg-card-dark { background-color: var(--theme-surface) !important; }
+
+.border-white { border-color: transparent !important; }
 
 body { background: var(--theme-background); color: var(--theme-text-primary); }
 
@@ -54,10 +59,16 @@ body { background: var(--theme-background); color: var(--theme-text-primary); }
   --secondary-text-color: var(--theme-text-muted);
   --primary-color: var(--theme-primary);
   --primary-bg-hover: var(--theme-primary-tint);
-  --secondary-color: var(--theme-secondary);
+  --secondary-color: var(--theme-primary-2);
   --accent-color: var(--theme-accent);
-  --alt-color: var(--theme-alt);
+  --alt-color: var(--theme-primary-2);
   --border-color: var(--theme-border);
+  --background: var(--theme-background);
+  --foreground: var(--theme-text-primary);
+  --muted-foreground: var(--theme-text-muted);
+  --border: var(--theme-border);
+  --card: var(--theme-surface);
+  --card-foreground: var(--theme-text-primary);
 }
 
 /* Utility classes for palette */
