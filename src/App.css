@@ -1,0 +1,27 @@
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--color-headingWeight, 700);
+  transition: font-weight 0.3s ease;
+}
+
+/* Smooth theme transitions */
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Animation for notification toast */
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}

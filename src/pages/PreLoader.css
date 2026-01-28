@@ -1,0 +1,148 @@
+/* PreLoader.css - responsive preloader styles and animations */
+
+.preloader-root {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg, #1f1f22); /* dark background like the attachment */
+}
+
+.preloader-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.logo-wrap {
+  will-change: transform, filter;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader-logo {
+  width: 160px;
+  height: auto;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.6));
+  transform-origin: center center;
+  animation: logo-pop 1.1s cubic-bezier(.22,.9,.35,1) forwards;
+}
+
+.preloader-text {
+  margin-top: 22px;
+  font-family: 'CabinetGrotesk-Regular', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color: #ffffff;
+  font-size: 28px;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: text-fade 900ms ease 700ms forwards;
+  letter-spacing: 0.3px;
+}
+
+/* Mobile tweaks: center lower and show smaller logo like attachment */
+@media (max-width: 640px) {
+  .preloader-logo {
+    width: 200px;
+    animation: logo-pop-mobile 900ms cubic-bezier(.2,.9,.3,1) forwards;
+  }
+
+  .preloader-text {
+    position: absolute;
+    bottom: 36px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 22px;
+    animation: text-fade 700ms ease 800ms forwards;
+  }
+
+  .preloader-inner {
+    justify-content: center;
+  }
+}
+
+/* Desktop: stronger 3D-like pop, logo sits center and text below */
+@media (min-width: 641px) {
+  .preloader-logo {
+    width: 180px;
+    animation: logo-pop-desktop 1100ms cubic-bezier(.16,.84,.35,1) forwards;
+  }
+
+  .preloader-text {
+    font-size: 30px;
+    margin-top: 28px;
+  }
+}
+
+/* Keyframes */
+@keyframes logo-pop {
+  0% {
+    transform: translateY(24px) scale(0.82);
+    filter: blur(4px) drop-shadow(0 10px 30px rgba(0,0,0,0.6));
+    opacity: 0.0;
+  }
+  65% {
+    transform: translateY(-6px) scale(1.08);
+    filter: blur(0px) drop-shadow(0 26px 44px rgba(0,0,0,0.45));
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    filter: blur(0px) drop-shadow(0 14px 28px rgba(0,0,0,0.55));
+    opacity: 1;
+  }
+}
+
+@keyframes logo-pop-desktop {
+  0% {
+    transform: perspective(800px) translateZ(-120px) translateY(30px) scale(0.78);
+    filter: blur(6px) drop-shadow(0 6px 18px rgba(0,0,0,0.6));
+    opacity: 0;
+  }
+  60% {
+    transform: perspective(800px) translateZ(60px) translateY(-10px) scale(1.14);
+    filter: blur(0px) drop-shadow(0 34px 56px rgba(0,0,0,0.42));
+    opacity: 1;
+  }
+  100% {
+    transform: perspective(800px) translateZ(0) translateY(0) scale(1);
+    filter: blur(0px) drop-shadow(0 16px 32px rgba(0,0,0,0.5));
+    opacity: 1;
+  }
+}
+
+@keyframes logo-pop-mobile {
+  0% {
+    transform: translateY(40px) scale(0.86);
+    opacity: 0;
+    filter: blur(4px) drop-shadow(0 8px 18px rgba(0,0,0,0.6));
+  }
+  60% {
+    transform: translateY(-8px) scale(1.06);
+    opacity: 1;
+    filter: blur(0) drop-shadow(0 22px 40px rgba(0,0,0,0.5));
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: blur(0) drop-shadow(0 12px 28px rgba(0,0,0,0.55));
+  }
+}
+
+@keyframes text-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
